@@ -25,10 +25,10 @@ To use this video player, you need to convert your video files to either DASH (.
 ## Screenshots
 
 ![Screenshot 1](screenshot-1.png)
-*Caption for Screenshot 1*
+*Player Demo*
 
 ![Screenshot 2](screenshot-2.png)
-*Caption for Screenshot 2*
+*Player Quality Settings*
 
 ## Contributing
 
