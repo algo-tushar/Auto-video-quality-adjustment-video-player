@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Automatically Video Quality Adjustment Video Player</title>
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/shaka-controls.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+
+        <div class="page-wrapper">
+            <!-- Header -->
+            <header class="header text-center">
+                <div class="container">
+                    <div class="branding">
+                        <h1 class="logo">
+                            <i class="fa-regular fa-file-video icon"></i>
+                            <span class="text-highlight">Dynamic Video Quality Adaptation: Enhancing Viewing Experience with </span>
+                            <span class="text-bold">Shaka Player</span>
+                        </h1>
+                    </div>
+    
+                    <!--//branding-->
+                    <div class="tagline">
+                        <p>Optimizing Video Streaming for Seamless Playback Across Devices and Networks</p>
+                    </div>
+    
+                    <div class="social-container">
+                        <a class="github-button" href="https://github.com/algo-tushar" data-size="large"
+                            aria-label="Follow @algo-tushar on GitHub">Follow @algo-tushar</a>
+                    </div>
+                    <!--//social-container-->
+                </div>
+                <!--//container-->
+            </header>
+            <!-- Header -->
+    
+            <!-- Main Section -->
+            <section class="cards-section">
+                <div class="container">
+                    <h2 class="title mb-3 text-center">Automatically Video Quality Adaptation!</h2>
+                    <div class="intro">
+                        <p class="text-center">
+                            Experience seamless video playback across devices and network conditions with our dynamic video quality adaptation feature powered by <strong><a href="https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html" rel="nofollow" target="_blank">Shaka Player</a></strong>. Enjoy optimized streaming, automatically adjusting to ensure the best viewing experience.
+                        </p>
+    
+                        <div class="d-flex flex-wrap justify-content-center align-items-center mt-5 mb-5">
+                            <div data-shaka-player-container="" shaka-controls="true" class="w-100 h-100">
+                                <video data-shaka-player id="player" class="w-100 h-100"></video>
+                            </div>
+                        </div>
+                    
+                        <p style="margin-top:60px" class="text-center">
+                            <strong>Github Repository:</strong>
+                            <a href="https://github.com/algo-tushar/auto-video-quality-adjustment-video-player">https://github.com/algo-tushar/auto-video-quality-adjustment-video-player</a>
+                        </p>
+                    </div>
+                    <!--//intro-->
+    
+                </div>
+                <!--//container-->
+            </section>
+            <!-- /Main Section -->
+        </div>
+    
+        <!-- Footer -->
+        <footer class="footer text-center">
+            <div class="container">
+                <small class="footer-text">Built with ❤️ <a href="https://freelancer.com/u/zabubakar">© Abubakar Wazih Tushar</a></small>
+            </div>
+        </footer>
+        <!-- /Footer -->
+        
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js" type="text/javascript"></script>
+        <script src="assets/js/shaka-player.ui.min.js" type="text/javascript"></script>
+        <script>
+            const manifestUri = './videos/1715545535_936/1715545535_936.mpd';
+
+            document.addEventListener('shaka-ui-loaded', init);
+            document.addEventListener('shaka-ui-load-failed', initFailed);
+
+            async function init() {
+                const video = document.getElementById('player');
+                const ui = video['ui'];
+                const controls = ui.getControls();
+                const player = controls.getPlayer();
+                const config = {
+                    'controlPanelElements': [
+                        'rewind',
+                        'play_pause',
+                        'fast_forward',
+                        'volume',
+                        'mute',
+                        'time_and_duration',
+                        'spacer',
+                        'captions',
+                        'picture_in_picture',
+                        'quality',
+                        'settings',
+                        'progress',
+                        'live',
+                        'buffering',
+                        'fullscreen',
+                        'custom_control',
+                    ],
+                }
+                ui.configure(config);
+
+                // Attach player and UI to the window for easy to access in the JS console.
+                window.player = player;
+                window.ui = ui;
+
+                // Listen for error events.
+                player.addEventListener('error', onPlayerErrorEvent);
+                controls.addEventListener('error', onUIErrorEvent);
+
+                // Load a manifest.
+                try {
+                    await player.load(manifestUri);
+                } catch (error) {
+                    onPlayerError(error);
+                }
+            }
+
+            function initFailed(errorEvent) {
+                console.error('Unable to load the UI library!');
+            }
+
+            function onPlayerErrorEvent(errorEvent) {
+                onPlayerError(event.detail);
+            }
+
+            function onPlayerError(error) {
+                console.error('Error code', error.code, 'object', error);
+            }
+
+            function onUIErrorEvent(errorEvent) {
+                onPlayerError(event.detail);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+/* Light */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans/OpenSans-Light.woff") format("woff");
+    font-style: normal;
+    font-weight: 300;
+}
+
+/* Normal */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans/OpenSans-Regular.woff") format("woff");
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* Medium */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans/OpenSans-SemiBold.woff") format("woff");
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Bold */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans/OpenSans-Bold.woff") format("woff");
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* ExtraBold */
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/open-sans/OpenSans-ExtraBold.woff") format("woff");
+    font-style: normal;
+    font-weight: 900;
+}
+
+
+a {
+    color: #3aa7aa;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    color: #339597;
+}
+.btn-primary {
+    --bs-btn-bg: #40babd;
+    --bs-btn-border-color: #40babd;
+    --bs-btn-hover-bg: #3aa7aa;
+    --bs-btn-hover-border-color: #3aa7aa;
+    --bs-btn-focus-shadow-rgb: 49, 132, 253;
+    --bs-btn-active-bg: #3aa7aa;
+    --bs-btn-active-border-color: #3aa7aa;
+    --bs-btn-disabled-bg: #40babd;
+    --bs-btn-disabled-border-color: #40babd;
+}
+body {
+    font-family: "Open Sans", arial, sans-serif;
+    color: #494d55;
+    font-size: 14px;
+    -moz-osx-font-smoothing: grayscale;
+}
+.header {
+    background: #494d55;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 60px 0;
+    border-top: 5px solid #40babd;
+}
+.branding {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.branding .logo {
+    font-size: 38px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.tagline {
+    font-weight: 600;
+    font-size: 20px;
+}
+.branding .text-highlight {
+    color: #40babd;
+}
+.branding .icon {
+    color: #40babd;
+}
+.cards-section {
+    padding: 60px 0;
+    background: #f9f9fb;
+}
+.footer {
+    background: #26282c;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 15px 0;
+}
+
+@media (min-width: 992px) {
+    #upload-container {
+        max-width: 700px;
+    }
+}
